@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-const FileBase = "C:/Users/Zhang_Li/idea-workspace/near_synonym_extraction/src/test/"
+const FileBase = "./word_tag/"
 
 type CsvTable struct {
 	FileName string
