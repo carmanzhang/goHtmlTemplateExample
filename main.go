@@ -44,13 +44,14 @@ func init() {
 }
 
 func main() {
-	// serve static assets showing how to strip/change the path.
 	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("resources/images"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("resources/javascripts"))))
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("resources/stylesheets"))))
 	// home page handler, defined in handlers.go
 	http.HandleFunc("/", homeHandler)
+	http.HandleFunc("/submit", submitHandler)
+	http.HandleFunc("/list", listHandler)
 	// start the server on port 1313
 	// go to http://localhost:1313 to see the rendered content.
-	http.ListenAndServe(":1313", nil)
+	http.ListenAndServe(":80", nil)
 }
